@@ -1,36 +1,126 @@
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/*사용 폰트 저장*/
+@font-face {
+    font-family: 'NotoSansKR-Black';
+    src: url(../assets/font/NotoSansKR-Black.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url(../assets/font/NotoSansKR-Bold.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-ExtraBold';
+    src: url(../assets/font/NotoSansKR-ExtraBold.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-ExtraLight';
+    src: url(../assets/font/NotoSansKR-ExtraLight.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-Light';
+    src: url(../assets/font/NotoSansKR-Light.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-Medium';
+    src: url(../assets/font/NotoSansKR-Medium.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-Regular';
+    src: url(../assets/font/NotoSansKR-Regular.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-SemiBold';
+    src: url(../assets/font/NotoSansKR-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'NotoSansKR-Thin';
+    src: url(../assets/font/NotoSansKR-Thin.ttf);
 }
 
+html{
+    font-family: 'NotoSansKR-Regular';
+    background: #fff3e9;
+}
+
+/*main*/
+.main img{
+    position:absolute;
+    padding-top:1%;
+}
+.main .title{
+    position: relative;
+    z-index: 1;
+    padding-left: 3%;
+    font-family: 'NotoSansKR-ExtraBold';
+    color: #6563ff;
+}
+.main .title2{
+    position: absolute;
+    padding-left: 3%;
+    opacity: 1;
+    font-family: 'NotoSansKR-ExtraBold';
+    color: #8fff63;
+    top: 0.5%;
+    left: 1%;
+}
+
+/*버튼 영역*/
+/*버튼 디자인*/
+.btn-gradient {
+    text-decoration: none;
+    color: white;
+    padding: 2px 11px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    background: #acb9fa;
+}
+/*버튼 클릭시 색 변화*/
+.btn-gradient:active    {background: #1c2d83;}
+.button_head{
+    display: flex;
+    margin-bottom : 1%;
+}
+.button_head .state{
+    display: inline-flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    margin-left: auto;
+}
+
+.button_head .manager{
+    margin: 0px 1%;
+}
+
+/*테이블 영역*/
 caption {display: none;}
 
 .list_table table {
     border-collapse : collapse; 
 }
-
 .list_table th,td{
     width: 100px;
     height: 50px;
     text-align: center;
     border: 1px solid #000;
     
-    vertical-align: top;	/* 위 */
-    vertical-align: bottom;   /* 아래 */
-    vertical-align: middle;   /* 가운데 */
+    vertical-align: top;
+    vertical-align: bottom;
+    vertical-align: middle;
 }
-
 .list_table .edit {
-    width: 45%;
-    height: 90%;
+    width: 33%;
+    height: 65%;
     float: left;
-    margin-right: 10%; 
+    margin-left: 10%;
     content : url('../assets/img/edit_icon.png');
 } 
 .list_table .remove {
-    width: 45%;
-    height: 90%;
+    width: 33%;
+    height: 62%;
     float: right;
+    margin-right: 10%;
     content : url('../assets/img/remove_icon.png');
 }

@@ -1,18 +1,24 @@
 <template>
     <div class="main">
-      <h1 class="title">당신의 할 일 목록's - To_Do List</h1>
+      <img src="../assets/img/list_ol_icon.png" style="width: 3%;" alt="목록아이콘">
+      <h1 class="title">
+        당신의 할 일 목록's - To_Do List
+      </h1>
+      <h1 class="title2">
+        당신의 할 일 목록's - To_Do List
+      </h1>
     </div>
 
     <div class="body">
       <div class="button_head">
-        <button class="add">+등록</button>
-        <select name="statue" id="" class="pl">
+        <button class="add btn-gradient">+등록</button>
+        <select name="state" id="" class="state">
             <option value="0" selected>상태</option>
             <option value="complete">완료</option>
             <option value="ing">미완료</option>
         </select>
         <input type="text" class="manager" placeholder="담당자">
-        <button class="search">검색</button>
+        <button class="search btn-gradient">검색</button>
       </div>
       <div class="list_table">
         <table>

@@ -1,0 +1,36 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+caption {display: none;}
+
+.list_table table {
+    border-collapse : collapse; 
+}
+
+.list_table th,td{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #000;
+    
+    vertical-align: top;	/* 위 */
+    vertical-align: bottom;   /* 아래 */
+    vertical-align: middle;   /* 가운데 */
+}
+
+.list_table .edit {
+    width: 45%;
+    height: 90%;
+    float: left;
+    margin-right: 10%; 
+    content : url('../assets/img/edit_icon.png');
+} 
+.list_table .remove {
+    width: 45%;
+    height: 90%;
+    float: right;
+    content : url('../assets/img/remove_icon.png');
+}

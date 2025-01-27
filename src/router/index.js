@@ -24,11 +24,13 @@ import MainView from '../views/MainView.vue'
 ]
 */
 
-const routes = [{
+const routes = [
+  {
   path: '/',
   name: 'main',
   component: MainView
-}]
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

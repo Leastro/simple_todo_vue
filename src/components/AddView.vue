@@ -28,7 +28,7 @@
             <div>
                 <span>기한<a class="red">*</a></span>
                 <br/>
-                <input type="text" class="manager" placeholder="담당자">
+                <VueDatePicker :modelValue="picked" @update:modelValue="newDate => picked = newDate"/>
             </div>
         </div>
 
@@ -41,9 +41,15 @@
     </ModalView>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+import VueDatePicker from 'vue3-datepicker';
 import ModalView from '../components/ModalView.vue';
 
+var picked =  ref(new Date()); //이걸 써야 데이터 값이 반응되며 날짜가 변경됨
+</script>
+
+<script>
 export default {
     name: 'AddTodo',
     components:  {ModalView},
@@ -54,5 +60,4 @@ export default {
         },
     }
 };
-
 </script>

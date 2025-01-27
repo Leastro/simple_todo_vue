@@ -60,9 +60,9 @@
       </table>
     </div>
 
-  <!-- modal 호출 -->
-  <!-- closeModal은 modal페이지에서 닫는 걸 눌렀을때의 값을 받아서 닫기 이벤트를 활성화시킨다-->
-  <PopupView v-if="isModalViwed" @closeModal="CloseModal"/>
+    <!-- modal 호출 -->
+    <!-- closeModal은 modal페이지에서 닫는 걸 눌렀을때의 값을 받아서 닫기 이벤트를 활성화시킨다-->
+    <PopupView v-if="isModalViwed" @closeModal="CloseModal"/>
   </div>
 </template>
 

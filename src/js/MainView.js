@@ -33,10 +33,12 @@ export default {
             this.isEdit = data;
             this.selectedData = null;
         },
-        //누른 데이터 값 가져와서 넣기
-        sendToParent(data) {
-            // 입력 데이터를 부모 컴포넌트로 전달하거나 다른 로직 처리
-            console.log('부모로 전달:', data);
+        removeTodoModal(id){
+            this.todoList = this.todoList.filter((item) => item.id !== id); //배열에서 삭제
+            //다시 순서대로 정렬
+            this.todoList = this.todoList.map((item, index) => {
+                return { ...item, id: index + 1 }; // index는 0부터 시작하므로 +1
+            });
         },
     }
 };

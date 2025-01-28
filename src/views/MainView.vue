@@ -53,7 +53,7 @@
             <td>{{ item.createdAt }}</td> <!--등록시간-->
             <td> <!--수정/삭제-->
               <img class="edit" alt="eidt" @click="EditTodoModal(item)" >
-              <img class="remove" alt="remove">
+              <img class="remove" alt="remove" @click="removeTodoModal(item.id)">
             </td>
           </tr>
         </tbody>

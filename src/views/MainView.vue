@@ -44,15 +44,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>테스트</td>
-            <td>김길동</td>
-            <td>완료</td>
-            <td>2025-01-05</td>
-            <td>2025-01-02</td>
-            <td>
-              <img class="edit" alt="eidt">
+          <tr v-for="(item, index) in todoList.slice().reverse()" :key="index">
+            <td>{{ item.id }}</td> <!--ID-->
+            <td>{{ item.content }}</td> <!--내용-->
+            <td>{{ item.manager }}</td> <!--담당자-->
+            <td>{{ item.status === '1' ? '완료' : '미완료'  }}</td> <!--상태-->
+            <td>{{ item.dueDate }}</td> <!--기한-->
+            <td>{{ item.createdAt }}</td> <!--등록시간-->
+            <td> <!--수정/삭제-->
+              <img class="edit" alt="eidt" @click="EditTodoModal(item)" >
               <img class="remove" alt="remove">
             </td>
           </tr>
@@ -62,7 +62,7 @@
 
     <!-- modal 호출 -->
     <!-- closeModal은 modal페이지에서 닫는 걸 눌렀을때의 값을 받아서 닫기 이벤트를 활성화시킨다-->
-    <PopupView v-if="isModalViwed" @closeModal="CloseModal"/>
+    <PopupView v-if="isModalViwed || isEdit" @closeModal="CloseModal" :isEdit="isEdit"  :selectedData="selectedData" />
   </div>
 </template>
 

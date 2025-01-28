@@ -158,7 +158,7 @@ caption {display: none;}
 }
 .modal-card {
   position: relative;
-  width: 375px;
+  width: 380px;
   margin: auto;
   margin-top: 30px;
   padding: 20px;
@@ -190,6 +190,9 @@ caption {display: none;}
 }
 .popbody input{
     height:25px;
+}
+.popbody input[type="radio"]{
+    height:15px;
 }
 .todo{
     width:98%;

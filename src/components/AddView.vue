@@ -63,13 +63,13 @@ import { ref } from 'vue';
 import VueDatePicker from 'vue3-datepicker';
 import ModalView from '../components/ModalView.vue';
 
-var picked =  ref(new Date()); //이걸 써야 데이터 값이 반응되며 날짜가 변경됨
+let picked =  ref(new Date()); //이걸 써야 데이터 값이 반응되며 날짜가 변경됨
 </script>
 
 <script>
 export default {
     name: 'AllTodo',
-    components:  {ModalView},
+    components: {ModalView},
     props: {
         isEdit: {
             type: Boolean,
@@ -100,7 +100,7 @@ export default {
     //},
     methods: {
         //상위 페이지이자 이벤트가 있는 MainView.vue로 값을 전해준다.
-        CloseModal() {
+        CloseModal(){
             this.$emit('closeModal', false);
         },
     }

@@ -5,9 +5,18 @@ export default {
     components: {PopupView},
     data(){
         return {
-            todoList: [
-                { id: 1, content: '테스트', manager: '김길동', status: '1', dueDate: '2025-01-05', createdAt: '2025-01-02' },
-                { id: 2, content: '예제', manager: '이영희', status: '0', dueDate: '2025-02-01', createdAt: '2025-01-10' },
+            todoList : [
+                { id: 1, content: '오전 9시 반 C기업 솔루션 회의', manager: '김길동', status: '1', dueDate: '2025-01-05', createdAt: '2025-01-02' },
+                { id: 2, content: '오후 2시 G사 고객 방문', manager: '신제훈', status: '1', dueDate: '2025-01-06', createdAt: '2025-01-03' },
+                { id: 3, content: '오전 9시 반 영업팀 회의', manager: '신제훈', status: '1', dueDate: '2025-01-13', createdAt: '2025-01-10' },
+                { id: 4, content: '오후 6시 반 회식', manager: '김현', status: '1', dueDate: '2025-01-14', createdAt: '2025-01-10' },
+                { id: 5, content: '오후 12시 점식 회식', manager: '김현', status: '1', dueDate: '2025-01-17', createdAt: '2025-01-10' },
+                { id: 6, content: '오후 1시 OT교육', manager: '박사훈', status: '0', dueDate: '2025-02-01', createdAt: '2025-01-10' },
+                { id: 7, content: '오전 11시 디자인팀 회의', manager: '김기현', status: '1', dueDate: '2025-01-15', createdAt: '2025-01-14' },
+                { id: 8, content: '오전 12시 개발부서 회의', manager: '최수아', status: '1', dueDate: '2025-01-22', createdAt: '2025-01-21' },
+                { id: 9, content: '오후 1시 반 디자인팀 프론트엔팀 합동 회의', manager: '김기현', status: '1', dueDate: '2025-01-24', createdAt: '2025-01-22' },
+                { id: 10, content: '오후 4시 프로젝트 A-프론트 파트 회의', manager: '이영희', status: '0', dueDate: '2025-02-01', createdAt: '2025-01-23' },
+                { id: 11, content: '오후 3시 D사 영업 교류', manager: '신제훈', status: '0', dueDate: '2025-02-05', createdAt: '2025-01-24' },
             ],
             selectedData : null,
             isModalViwed : false,
@@ -18,7 +27,7 @@ export default {
         }
     },
      mounted() {
-    //     console.log("MainView, selectedData:", this.selectedData); // 값 받는 것 확인
+    //  console.log("MainView, selectedData:", this.selectedData); // 값 받는 것 확인
         this.resultList = this.todoList; //처음에는 검색결과와 초기 결과값이 같도록 설정
     },
     methods: {

@@ -12,13 +12,13 @@
   <div class="body">
     <div class="button_head">
       <button class="add btn-gradient" v-on:click="AddTodoModal">+ 등록</button>
-      <select name="state" id="" class="state" v-model="stateOption" @click="SearchResult">
+      <select name="state" id="" class="state" v-model="stateOption" @click="SearchResult(1)">
           <option value="-" selected>상태</option>
           <option value="1">완료</option>
           <option value="0">미완료</option>
       </select>
-      <input type="text" class="manager" placeholder="담당자" v-model="inputName" @keyup.enter="SearchResult">
-      <button class="search btn-gradient" @click="SearchResult">검색</button>
+      <input type="text" class="manager" placeholder="담당자" v-model="inputName" @keyup.enter="SearchResult(1)">
+      <button class="search btn-gradient" @click="SearchResult(1)">검색</button>
     </div>
     <div class="list_table">
       <table>
@@ -61,6 +61,11 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="page_num">
+      <img src="../assets/img/left_arrow_icon.png" style="width: 38px;" alt="이전페이지">
+      <span class="pageSelect" v-for="item in isPage" :key="item"  @click="SearchResult(item)"> {{ item }}</span>
+      <img src="../assets/img/right_arrow_icon.png" style="width: 38px;" alt="다음페이지">
     </div>
 
     <!-- modal 호출 -->

@@ -24,13 +24,16 @@ export default {
             inputName : "",
             resultList : [],
             stateOption : "-",
+            isPage : 1,
         }
     },
      mounted() {
     //  console.log("MainView, selectedData:", this.selectedData); // 값 받는 것 확인
         this.resultList = this.todoList; //처음에는 검색결과와 초기 결과값이 같도록 설정
+        this.isPage = Math.ceil(this.resultList.length / 10); //하단 페이지 범위 계산
+        this.SearchResult(1); // 한 목록에 10개만 나오도록 수정
     },
-    methods: {
+    methods: {        
         AddTodoModal(){ //등록
             this.isModalViwed = true;
             this.isEdit = false;
@@ -53,12 +56,18 @@ export default {
                 return { ...item, id: index + 1 }; // index는 0부터 시작하므로 +1
             });
         },
-        SearchResult(){ //검색
-            let searchList; // 검색된 데이터를 저장하기 위한 변수
+        SearchResult(num){ //검색
+            let searchList = []; // 검색된 데이터를 저장하기 위한 변수
+            let startPage = (num - 1)*10;//페이지 시작 번호 찾기
+            let startNum = (num - 1)*10 + 1; //정렬할 때 id 부여
 
             //상태를 기본값으로 돌렸을 경우 그냥 초기값으로 변경
             if(this.stateOption == "-"){
                 this.resultList = this.todoList;
+                for (let i = startPage; i <= startPage + 9 ; i ++){ //10개만 나오도록 제한
+                    if(this.resultList[i])
+                        searchList.push(this.resultList[i]);
+                }
             }
 
             //먼저 담당자 검색어가 입력되어 있는지 체크한다.
@@ -85,10 +94,11 @@ export default {
             //정렬
             if(searchList != undefined && searchList.length >= 0){
                 //검색 결과를 다시 정렬
-                this.resultList = searchList.map((item, index) => {
-                    return { ...item, id: index + 1 }; // index는 0부터 시작하므로 +1
+                this.resultList = searchList.map((item) => {
+                    return { ...item, id: startNum++ };
                 });
             }
         },
+        
     }
 };

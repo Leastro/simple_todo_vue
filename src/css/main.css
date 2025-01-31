@@ -111,6 +111,14 @@ html{
     margin: 0px 1%;
 }
 
+.page_num{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
 /*테이블 영역*/
 caption {display: none;}
 

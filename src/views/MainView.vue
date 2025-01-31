@@ -63,9 +63,9 @@
       </table>
     </div>
     <div class="page_num">
-      <img src="../assets/img/left_arrow_icon.png" style="width: 38px;" alt="이전페이지">
-      <span class="pageSelect" v-for="item in isPage" :key="item"  @click="SearchResult(item)"> {{ item }}</span>
-      <img src="../assets/img/right_arrow_icon.png" style="width: 38px;" alt="다음페이지">
+      <img class="btn-gradient" src="../assets/img/left_arrow_w_icon.png" style="width: 20px;" alt="이전페이지">
+      <span v-for="item in isPage" :key="item"  @click="SearchResult(item)" :class="['pageSelect_' + item, { pageSelect: pageSelected === item }]"> {{ item }}</span>
+      <img class="btn-gradient" src="../assets/img/right_arrow_w_icon.png" style="width: 20px;" alt="다음페이지">
     </div>
 
     <!-- modal 호출 -->

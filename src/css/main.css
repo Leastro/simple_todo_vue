@@ -110,13 +110,16 @@ html{
 .button_head .manager{
     margin: 0px 1%;
 }
-
 .page_num{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    margin-top : 10px;
+}
+.pageSelect{
+    text-decoration: underline;
 }
 
 /*테이블 영역*/

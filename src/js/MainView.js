@@ -24,7 +24,8 @@ export default {
             inputName : "",
             resultList : [],
             stateOption : "-",
-            isPage : 1,
+            isPage : 1, //첫 페이지는 항상 있으므로 1
+            pageSelected : 0 //class 추가 구문 때문에 일단 0으로 선언
         }
     },
      mounted() {
@@ -60,6 +61,9 @@ export default {
             let searchList = []; // 검색된 데이터를 저장하기 위한 변수
             let startPage = (num - 1)*10;//페이지 시작 번호 찾기
             let startNum = (num - 1)*10 + 1; //정렬할 때 id 부여
+
+            // 이미 선택된 경우 해제, 그렇지 않으면 선택
+            this.pageSelected = this.pageSelected === num ? null : num;
 
             //상태를 기본값으로 돌렸을 경우 그냥 초기값으로 변경
             if(this.stateOption == "-"){

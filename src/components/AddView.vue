@@ -5,22 +5,16 @@
         </button>
 
         <div class="pophead" v-if="!isEdit">
-            <img src="../assets/img/list_ol_icon.png" style="width: 38px;" alt="목록아이콘">
+            <img src="../assets/img/list_ol_icon.png" style="height:40px;padding-top:20px;" alt="목록아이콘">
             <h1 class="title">
-                할 일 등록 - Add To Do
-            </h1>
-            <h1 class="title2">
-                할 일 등록 - Add To Do
+                <img src="../assets/img/add_title.png" alt="등록">
             </h1>
         </div>
 
         <div class="pophead" v-if="isEdit">
-            <img src="../assets/img/list_ol_icon.png" style="width: 38px;" alt="목록아이콘">
+            <img src="../assets/img/list_ol_icon.png" style="height:40px;padding-top:20px;" alt="목록아이콘">
             <h1 class="title">
-                할 일 수정 - Edit To Do
-            </h1>
-            <h1 class="title2">
-                할 일 수정 - Edit To Do
+                <img src="../assets/img/Edit_title.png" alt="수정">
             </h1>
         </div>
 

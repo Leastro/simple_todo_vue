@@ -2,10 +2,7 @@
   <div class="main">
     <img src="../assets/img/list_ol_icon.png" style="width: 38px;" alt="목록아이콘">
     <h1 class="title">
-      당신의 할 일 목록's - To Do List
-    </h1>
-    <h1 class="title2">
-      당신의 할 일 목록's - To Do List
+      <img src="../assets/img/Main_title.png" alt="제목">
     </h1>
   </div>
 

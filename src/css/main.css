@@ -46,23 +46,16 @@ html{
 }
 
 /*main*/
-.main img{
-    position:absolute;
-    padding-top:6px;
+.main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+    margin-bottom: 10px;
 }
-.title{
-    position: relative;
-    padding-left: 38px;
-    font-family: 'NotoSansKR-ExtraBold';
-    color: #8fff63;
-}
-.title2{
-    position: absolute;
-    padding-left: 39px;
-    font-family: 'NotoSansKR-ExtraBold';
-    color: #6563ff;
-    top: 3px;
-    left: 10px;
+.title img{
+    display: block;
+    padding-top: 5px;
 }
 
 /*버튼 영역*/
@@ -93,8 +86,8 @@ html{
 }
 .close{
     position: absolute;
-    top:6px;
-    right:-3px;
+    top:20px;
+    right:10px;
     margin-right:10px;
 }
 .button_result{
@@ -169,7 +162,7 @@ caption {display: none;}
 }
 .modal-card {
   position: relative;
-  width: 380px;
+  width: 440px;
   margin: auto;
   margin-top: 30px;
   padding: 20px;
@@ -179,22 +172,22 @@ caption {display: none;}
 }
 
 .pophead{
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
     height: 54px;
-    top: 10px;
 }
-
 .pophead .title{
     display: inline;
     padding-left: 0px;
     top: -7px;
     left: -9px;
 }
-.pophead .title2{
-    padding-left: 0px;
-    top: -25px;
-    left: 42px;
+.pophead .title{
+    padding-top: 25px;
 }
+
 .popbody{
     position: relative;
     top: 10px;

@@ -100,6 +100,7 @@ export default {
         SaveData(){//입력한 할 일 혹은 수정한 할 일을 로컬 스토리지에 저장한다.
             let today = new Date();
             let dataLen = this.totalInfo.length;
+            
             let totalInfos = {
                 id: this.isEdit ? this.todoData.id : (dataLen > 0 ? dataLen + 1 : 1), 
                 content: this.todoData.content, 
@@ -107,7 +108,7 @@ export default {
                 status: this.isEdit ? this.todoData.status : '0',
                 dueDate: this.todoData.dueDate == undefined ? 
                 this.formatDate(today) : 
-                (this.isEdit ? this.todoData.dueDate : this.formatDate(this.todoData.dueDate)),
+                (this.isEdit ? this.formatDate(this.todoData.dueDate) : this.todoData.dueDate),
                 createdAt: this.formatDate(today)
             }
 
@@ -119,7 +120,6 @@ export default {
                     return { ...item, id: item.id };
                 });
             }
-            console.log(this.totalInfo);
             this.totalInfo.push(totalInfos);
 
             localStorage.setItem('List', JSON.stringify(this.totalInfo));//로컬저장

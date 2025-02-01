@@ -96,6 +96,9 @@ export default {
         },
         LoadTodoList() { //목록갱신
             this.todoList = JSON.parse(localStorage.getItem('List'));
+            this.todoList.sort((a, b) => b.id - a.id).map((item) => {
+                return { ...item, id: item.id };
+            });
             this.resultList = this.todoList; // 검색 리스트도 초기화
             this.isPage = Math.ceil(this.resultList.length / 10); // 페이지 갱신
             this.SearchResult(1); // 첫 페이지 재검색

@@ -33,7 +33,7 @@
                 <span>기한<a class="red">*</a></span>
                 <br/>
                 <!--등록 레이아웃과 같이 쓰기 때문에 삼항연산자를 통해 등록일 경우 오늘 날자를, 수정일 경우 해당 데이터를 불러오도록 설정한다.-->
-                <VueDatePicker :modelValue="todoData.dueDate ? new Date(todoData.dueDate) : picked" @update:modelValue="newDate => todoData.dueDate = newDate" />
+                <VueDatePicker :modelValue="todoData.dueDate ? new Date(todoData.dueDate) : picked"  @update:modelValue="newDate => todoData.dueDate = newDate" />
             </div>
             <div v-if="isEdit">
                 <span>상태<a class="red">*</a></span>
@@ -45,7 +45,7 @@
 
         <div class="popfooter">
             <div class="button_result">
-                <button class="add btn-gradient" >+ 저장</button>
+                <button class="add btn-gradient" v-on:click="SaveData">+ 저장</button>
                 <button class="back btn-gradient" v-on:click="CloseModal">x 취소</button>
             </div>
         </div>
@@ -73,30 +73,64 @@ export default {
             type: Object,
             required: false
         },
+        inputId: {
+            type: Object,
+            required: false
+        }
     },
     data() {
         return {
             todoData: { ...this.selectedData }, // props를 로컬 데이터로 복사
+            totalInfo : JSON.parse(localStorage.getItem('List')) || []
         };
     },
-    // watch: {
-    //     // selectedData 변경될 때 todoData를 업데이트
-    //     selectedData: {
-    //         deep: true,
-    //         immediate: true,
-    //         handler(newValue) {
-    //             this.todoData = { ...newValue };
-    //         },
-    //     },
-    // },
-    //mounted() {
+    mounted() {
     //    console.log("AddView, selectedData:", this.selectedData); // 값 받는 것 확인
-    //},
+    },
     methods: {
         //상위 페이지이자 이벤트가 있는 MainView.vue로 값을 전해준다.
         CloseModal(){
             this.$emit('closeModal', false);
         },
+        formatDate(date){
+            return date.getFullYear() + 
+            '-' + String(date.getMonth() + 1).padStart(2, '0') +
+            '-' + String(date.getDate()).padStart(2, '0');
+        },
+        SaveData(){//입력한 할 일 혹은 수정한 할 일을 로컬 스토리지에 저장한다.
+            let today = new Date();
+            let dataLen = this.totalInfo.length;
+            let totalInfos = {
+                id: this.isEdit ? this.todoData.id : (dataLen > 0 ? dataLen + 1 : 1), 
+                content: this.todoData.content, 
+                manager: this.todoData.manager, 
+                status: this.isEdit ? this.todoData.status : '0',
+                dueDate: this.todoData.dueDate == undefined ? 
+                this.formatDate(today) : 
+                (this.isEdit ? this.todoData.dueDate : this.formatDate(this.todoData.dueDate)),
+                createdAt: this.formatDate(today)
+            }
+
+            if(this.isEdit){
+                //기존 데이터 삭제 후 다시 넣기
+                this.totalInfo = this.totalInfo.filter((item) => item.id !== totalInfos.id); //배열에서 삭제
+                //결과를 다시 정렬
+                this.totalInfo = this.totalInfo.sort((a, b) => b.id - a.id).map((item) => {
+                    return { ...item, id: item.id };
+                });
+            }
+            console.log(this.totalInfo);
+            this.totalInfo.push(totalInfos);
+
+            localStorage.setItem('List', JSON.stringify(this.totalInfo));//로컬저장
+            
+
+            //화면 닫기 전 목록 갱신
+            this.$emit('updateList');
+
+            //화면 닫기
+            this.$emit('closeModal', false);
+        }
     }
 };
 </script>

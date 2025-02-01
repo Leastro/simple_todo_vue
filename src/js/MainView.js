@@ -19,7 +19,9 @@ export default {
     },
      mounted() {
     //  console.log("MainView, selectedData:", this.selectedData); // 값 받는 것 확인
-        this.resultList = this.todoList; //처음에는 검색결과와 초기 결과값이 같도록 설정
+        this.resultList =  this.todoList.sort((a, b) => b.id - a.id).map((item) => {
+            return { ...item, id: item.id };
+        }); //처음에는 검색결과와 초기 결과값이 같도록 설정. 내림차순
         if(this.resultList != undefined)
             this.isPage = Math.ceil(this.resultList.length / 10); //하단 페이지 범위 계산
         this.SearchResult(1); // 한 목록에 10개만 나오도록 수정
@@ -43,7 +45,7 @@ export default {
         },
         deleteData(id){ //삭제
             this.todoList = this.todoList.filter((item) => item.id !== id); //배열에서 삭제
-            this.todoList = this.todoList.sort((a, b) => a.id - b.id).map((item) => {
+            this.todoList = this.todoList.sort((a, b) => b.id - a.id).map((item) => {
                 return { ...item, id: item.id };
             });
 
@@ -51,19 +53,16 @@ export default {
             this.LoadTodoList();
         },
         SearchResult(num){ //검색
-            let searchList = []; // 검색된 데이터를 저장하기 위한 변수
-            let startPage = (num - 1)*10;//페이지 시작 번호 찾기
-
+            let searchList = null; // 검색된 데이터를 저장하기 위한 변수
+            let startIndex = (num-1) * 10;
+            let endIndex = startIndex + 10;
             // 이미 선택된 경우 해제, 그렇지 않으면 선택
             this.pageSelected = this.pageSelected === num ? null : num;
 
             //상태를 기본값으로 돌렸을 경우 그냥 초기값으로 변경
             if(this.stateOption == "-" && this.resultList != undefined){
                 this.resultList = this.todoList;
-                for (let i = startPage; i <= startPage + 9 ; i ++){ //10개만 나오도록 제한
-                    if(this.resultList[i])
-                        searchList.push(this.resultList[i]);
-                }
+                searchList = this.resultList.slice(startIndex, endIndex);
             }
 
             //먼저 담당자 검색어가 입력되어 있는지 체크한다.

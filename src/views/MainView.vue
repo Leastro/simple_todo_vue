@@ -45,7 +45,7 @@
             <td>{{ item.id }}</td> <!--순번-->
             <td>{{ item.content }}</td> <!--내용-->
             <td>{{ item.manager }}</td> <!--담당자-->
-            <td>{{ item.status === '1' ? '완료' : '미완료' }}</td> <!--상태-->
+            <td>{{ item.state === '1' ? '완료' : '미완료' }}</td> <!--상태-->
             <td>{{ item.dueDate }}</td> <!--기한-->
             <td>{{ item.createdAt }}</td> <!--등록시간-->
             <td> <!--수정/삭제-->

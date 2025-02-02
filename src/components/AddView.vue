@@ -36,10 +36,10 @@
                 <VueDatePicker :modelValue="todoData.dueDate ? new Date(todoData.dueDate) : picked"  @update:modelValue="newDate => todoData.dueDate = newDate" />
             </div>
             <div v-if="isEdit">
-                <span>상태<a class="red">*</a></span>
+                <span>상태<a class="red">*</a></span>1
                 <br/>
-                <input type="radio" name="status" value="0" v-model="todoData.status"/>미완료
-                <input type="radio" name="status" value="1" v-model="todoData.status"/>완료
+                <input type="radio" name="state" value="0" v-model="todoData.state"/>미완료
+                <input type="radio" name="state" value="1" v-model="todoData.state"/>완료
             </div>
         </div>
 
@@ -105,7 +105,7 @@ export default {
                 id: this.isEdit ? this.todoData.id : (dataLen > 0 ? dataLen + 1 : 1), 
                 content: this.todoData.content, 
                 manager: this.todoData.manager, 
-                status: this.isEdit ? this.todoData.status : '0',
+                state: this.isEdit ? this.todoData.state : '0',
                 dueDate: this.todoData.dueDate == undefined ? 
                 this.formatDate(today) : 
                 (this.isEdit ? this.formatDate(this.todoData.dueDate) : this.todoData.dueDate),

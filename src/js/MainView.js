@@ -74,15 +74,15 @@ export default {
             //상기 담당자 검색 결과가 있는지 없는지를 체크 한 후에 상태 필터를 거친다.
             if(searchList != undefined && searchList.length > 0){
                 if(this.stateOption == "0"){ //미완료 상태
-                    searchList = searchList.filter(item => item.status === '0');
+                    searchList = searchList.filter(item => item.state === '0');
                 }else if(this.stateOption == "1"){ //완료 상태
-                    searchList = searchList.filter(item => item.status === '1');
+                    searchList = searchList.filter(item => item.state === '1');
                 }
             }else{
                 if(this.stateOption == "0"){ //미완료 상태
-                    searchList = this.todoList.filter(item => item.status === '0');
+                    searchList = this.todoList.filter(item => item.state === '0');
                 }else if(this.stateOption == "1"){ //완료 상태
-                    searchList = this.todoList.filter(item => item.status === '1');
+                    searchList = this.todoList.filter(item => item.state === '1');
                 }
             }
             

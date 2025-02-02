@@ -5,6 +5,7 @@ MainView.vue를 기반으로 Modal기능을 이용 할 일 등록, 수정이 가
 
 ##예시 데이터
 로컬스토리지 key이름은 List 로 지정
+
 [{"id": 11, "content": "연말정산 마감일", "manager": "김미아", "state": "0", "dueDate": "2025-02-08", "createdAt": "2025-02-02"},
 {"id": 10, "content": "00프로젝트 업데이트 반영일", "manager": "안가훈", "state": "0", "dueDate": "2025-02-21", "createdAt": "2025-02-02"},
 {"id": 9, "content": "1차 프로젝트 마감일", "manager": "김테스", "state": "1", "dueDate": "2025-01-31", "createdAt": "2025-02-02"},
